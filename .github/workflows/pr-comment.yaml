@@ -13,6 +13,11 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          export BRANCH=`gh api ${{ github.event.issue.pull_request.url }} | jq ".head.ref"`
-          gh issue comment ${{ github.event.issue.number }} --body="Hi from Github Actions" --repo=${{ github.repository }}
-          gh run list --branch=$BRANCH --repo=${{ github.repository }} --workflow="CI"
+          echo 'PULL_REQUEST<<EOF' >> $GITHUB_ENV
+          curl gh api ${{ github.event.issue.pull_request.url }} >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+          echo ${{ env.PULL_REQUEST }}
+          
+          # gh issue comment ${{ github.event.issue.number }} --body="Hi from Github Actions" --repo=${{ github.repository }}
+          
+          # gh run list --branch={{ $env.BRANCH }} --repo=${{ github.repository }} --workflow="CI"
