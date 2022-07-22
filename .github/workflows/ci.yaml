@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Build
+      - run: echo "BUILD"
+  deployment:
+    needs: [build]
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deployment
+        run: echo "DEPLOYMENT"
+
