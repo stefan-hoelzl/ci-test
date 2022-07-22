@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Comment
-        run: |
-          echo ${{ github.event.comment.body }}
-          echo ${{ toJSON(github.event) }}
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
