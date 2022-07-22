@@ -3,6 +3,15 @@ name: CI
 on:
   push:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment Environment'     
+        required: true
+        default: 'review'
+        type: choice
+        options:
+        - review
+        - master
 
 jobs:
   build:
