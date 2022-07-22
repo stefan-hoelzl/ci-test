@@ -15,4 +15,4 @@ jobs:
         run: |
           export BRANCH=`gh api ${{ github.event.issue.pull_request.url }} | jq ".head.ref"`
           gh issue comment ${{ github.event.issue.number }} --body="Hi from Github Actions" --repo=${{ github.repository }}
-          gh run list --branch=${{ BRANCH }} --repo=${{ github.repository }} --workflow="CI"
+          gh run list --branch=$BRANCH --repo=${{ github.repository }} --workflow="CI"
