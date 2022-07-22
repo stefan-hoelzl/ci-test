@@ -1,0 +1,11 @@
+name: PR Comment
+
+on:
+  - issue_comment
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Comment
+        run: echo "COMMENT"
