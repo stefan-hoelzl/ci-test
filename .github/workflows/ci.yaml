@@ -11,7 +11,7 @@ jobs:
         run: echo "BUILD"
   deployment:
     needs: [build]
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-20.04
     steps:
       - name: Deployment
