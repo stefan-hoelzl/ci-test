@@ -1,11 +1,12 @@
 name: PR Comment
 
 on:
-  - issue_comment
+  issue_comment:
+    types: [created]  
 
 jobs:
-  build:
+  comment:
     runs-on: ubuntu-20.04
     steps:
       - name: Comment
-        run: echo {{ github.event }}
+        run: echo ${{ github.event }}
