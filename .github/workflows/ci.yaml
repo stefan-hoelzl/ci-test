@@ -16,9 +16,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    env:
+      IMAGE_TAG: image-tag
+      PUSH_TAG: push-${{ env.IMAGE_TAG }}
     steps:
       - name: Build
-        run: echo "BUILD"
+        run: echo ${{ env.PUSH_TAG }} ${{ env.IMAGE_TAG }}
   deployment:
     needs: [build]
     if: github.ref == 'refs/heads/main' || inputs.environment
