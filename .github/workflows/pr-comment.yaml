@@ -11,6 +11,7 @@ jobs:
       - name: Comment
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "$GITHUB_CONTEXT"
           gh api ${{ github.event.issue.pull_request.html_url }}
