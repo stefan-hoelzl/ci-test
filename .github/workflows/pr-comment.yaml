@@ -14,4 +14,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api ${{ github.event.issue.pull_request.url }}
-          gh issue comment ${{ github.event.issue.url }} --body "Hi from Github Actions"
+          gh issue comment ${{ github.event.issue.number }} --body "Hi from Github Actions"
