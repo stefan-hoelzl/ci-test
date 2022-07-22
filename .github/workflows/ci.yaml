@@ -18,9 +18,10 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       IMAGE_TAG: image-tag
-      PUSH_TAG: push-image-tag
     steps:
       - name: Build
+        env:
+          PUSH_TAG: push-${{ env.IMAGE_TAG }}
         run: echo ${{ env.PUSH_TAG }} ${{ env.IMAGE_TAG }}
   deployment:
     needs: [build]
