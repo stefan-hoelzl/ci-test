@@ -21,9 +21,11 @@ jobs:
         run: echo "BUILD"
   deployment:
     needs: [build]
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || inputs.environment
     runs-on: ubuntu-20.04
     steps:
       - name: Deployment
         run: echo "DEPLOYMENT"
+      - name: Echo
+        run: echo ${{ inputs.environment || github.ref_name }}
 
