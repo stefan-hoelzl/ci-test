@@ -27,5 +27,5 @@ jobs:
       - name: Deployment
         run: echo "DEPLOYMENT"
       - name: Echo
-        run: echo ${{ inputs.environment && inputs.environment || 'master' }}
+        run: echo ${{ inputs.environment || github.ref_name }}
 
