@@ -11,4 +11,4 @@ jobs:
       - name: Comment
         run: |
           echo ${{ github.event.comment.body }}
-          echo ${{ toJson(github.event) }}
+          echo ${{ toJSON(github.event) }}
