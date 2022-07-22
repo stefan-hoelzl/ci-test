@@ -14,7 +14,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo 'PULL_REQUEST<<EOF' >> $GITHUB_ENV
-          curl gh api ${{ github.event.issue.pull_request.url }} >> $GITHUB_ENV
+          gh api ${{ github.event.issue.pull_request.url }} >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
           echo ${{ env.PULL_REQUEST }}
           
