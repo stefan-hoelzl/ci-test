@@ -1,35 +1,18 @@
 name: CI
 
 on:
-  push:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Deployment Environment'     
-        required: true
-        default: 'review'
-        type: choice
-        options:
-        - review
-        - master
+  pull_request:
+    types:
+    - closed
+
+concurrency: "main"
 
 jobs:
   build:
     runs-on: ubuntu-20.04
-    env:
-      IMAGE_TAG: image-tag
     steps:
-      - name: Build
-        env:
-          PUSH_TAG: push-${{ env.IMAGE_TAG }}
-        run: echo ${{ env.PUSH_TAG }} ${{ env.IMAGE_TAG }}
-  deployment:
-    needs: [build]
-    if: github.ref == 'refs/heads/main' || inputs.environment
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Deployment
-        run: echo "DEPLOYMENT"
-      - name: Echo
-        run: echo ${{ inputs.environment || github.ref_name }}
+      - uses: actions/checkout@v3
+      - run: sleep 2m
+      - run: git rev-parse HEAD
+
 
