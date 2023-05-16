@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
     types:
-    - closed
+    - synchronize
 
 concurrency: "main"
 
@@ -11,5 +11,4 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - run: sleep 1m
-      - uses: actions/checkout@v3
+      - run: export
