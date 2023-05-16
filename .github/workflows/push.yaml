@@ -7,4 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo PUSHED
+      - run: exit 1
+      - if: ${{ failure() }}
+        run: echo "FAILED"
+      - run: echo "DO NOT RUN"
