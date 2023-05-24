@@ -1,14 +1,10 @@
 name: CI
 
 on:
-  push:
-    branches-ignore:
-      - 'production'
-
-concurrency: "main"
+  delete:
 
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - run: export
+      - run: echo ${{ github.event.ref }}
