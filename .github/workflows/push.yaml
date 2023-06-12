@@ -4,8 +4,5 @@ on:
   push
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04
-    steps:
-      - shell: ${{ runner.os == 'Windows' && 'cmd' || 'bash' }}
-        run: gh
+  jira:
+    uses: stefan-hoelzl/ci-tests/.github/workflows/call.yaml@master
