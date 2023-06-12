@@ -5,4 +5,4 @@ on:
 
 jobs:
   jira:
-    uses: stefan-hoelzl/ci-tests/.github/workflows/call.yaml@master
+    uses: stefan-hoelzl/ci-tests/.github/workflows/call.yaml@main
