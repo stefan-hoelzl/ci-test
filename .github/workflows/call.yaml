@@ -1,0 +1,14 @@
+on:
+  workflow_call:
+    inputs:
+      if:
+        description: 'condition when this action should be run'
+        default: ${{ github.ref_protected }}
+        required: false
+        type: boolean
+jobs:
+  conditional:
+    runs-on: ubuntu-20.04
+    if: inputs.if
+    steps:
+      - run: echo "RUN"
