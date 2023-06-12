@@ -6,3 +6,5 @@ on:
 jobs:
   jira:
     uses: ./.github/workflows/call.yaml
+    with:
+      if: ${{ github.ref_protected }}
