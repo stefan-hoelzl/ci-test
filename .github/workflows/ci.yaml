@@ -13,4 +13,4 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          git merge-base --is-ancestor ${{ github.event.pull_request.base.ref }} @
+          git merge-base --is-ancestor origin/${{ github.event.pull_request.base.ref }} @
