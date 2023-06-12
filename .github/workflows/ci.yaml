@@ -1,10 +1,14 @@
 name: CI
 
 on:
-  delete:
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo ${{ github.event.ref }}
+      - run: |
+          echo github.event.pull_request.base.ref=${{ github.event.pull_request.base.ref }}
+          echo github.event.pull_request.base.sha=${{ github.event.pull_request.base.sha }}
+          git log ${{ github.event.pull_request.base.ref }} -1 --oneline
