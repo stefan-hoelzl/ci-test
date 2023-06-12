@@ -3,7 +3,7 @@ on:
     inputs:
       if:
         description: 'condition when this action should be run'
-        default: ${{ github.ref_protected }}
+        default: ${{ !github.ref_protected }}
         required: false
         type: boolean
 jobs:
