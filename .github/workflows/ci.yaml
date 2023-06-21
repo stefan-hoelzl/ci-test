@@ -9,5 +9,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - run: |
-          echo "${{ toJSON(github) }}"
+      - if: ${{ github.event.ref_type == 'branch' }}
+        run: |
+          gh pr create --fill --assignee=${{ github.actor }}
