@@ -3,6 +3,9 @@ name: CI
 on:
   create
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   pr:
     runs-on: ubuntu-20.04
