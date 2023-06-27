@@ -1,19 +1,11 @@
 name: CI
 
 on:
-  create
-
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+  pull_request:
+    types: [closed]
 jobs:
   pr:
     runs-on: ubuntu-20.04
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - if: ${{ github.event.ref_type == 'branch' }}
-        run: |
-          title="[${{ github.event.ref }}]$(git log -1 --format=%s)"
-          body="$(git log -1 --format=%b)"
-          gh pr create --title "${title}" --body "${body}" --assignee "${{ github.actor }}"
+      - run: |
+          echo "${{ toJSON(github) }}"
