@@ -17,4 +17,4 @@ jobs:
       - run: $PSVersionTable
         shell: pwsh
       - run: ls -l /opt/microsoft/powershell/7/pwsh
-      - run: python -c 'import subprocess; subprocess.check_call("/opt/microsoft/powershell/7/pwsh -Command $PSVersionTable")'
+      - run: python -c 'import subprocess; subprocess.check_call("/opt/microsoft/powershell/7/pwsh", shell=True)'
