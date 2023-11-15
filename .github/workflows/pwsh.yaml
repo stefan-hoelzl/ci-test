@@ -16,8 +16,8 @@ jobs:
           python-version: "3.10"
       - run: $PSVersionTable
         shell: pwsh
-      - run: pwsh -Command $PSVersionTable
+      - run: which pwsh
       - run: |-
           import subprocess
-          subprocess.check_call("pwsh -Command $PSVersionTable")
+          subprocess.check_call("pwsh.exe -Command $PSVersionTable")
         shell: python
