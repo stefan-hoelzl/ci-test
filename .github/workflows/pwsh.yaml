@@ -19,5 +19,5 @@ jobs:
       - run: which pwsh
       - run: |-
           import subprocess
-          subprocess.check_call("pwsh.exe -Command $PSVersionTable")
+          subprocess.check_call("/usb/bin/pwsh -Command $PSVersionTable")
         shell: python
