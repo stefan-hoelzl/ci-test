@@ -17,4 +17,4 @@ jobs:
       - run: |-
           mkdir -p ~/.local/bin
           ln -s /usr/bin/pwsh ~/.local/bin/powershell
-          python -c 'import subprocess; subprocess.check_call("powershell -Command Invoke-WebRequest -Uri https://google.de", shell=True)'
+      - run: python -c 'import subprocess; subprocess.check_call("powershell -Command Invoke-WebRequest -Uri https://google.de", shell=True)'
