@@ -14,4 +14,4 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-      - run: python -c 'import subprocess; subprocess.check_call("pwsh -Command $PSVersionTable", shell=True)'
+      - run: python -c 'import subprocess; subprocess.check_call("pwsh -Command Invoke-WebRequest -Uri https://google.de", shell=True)'
