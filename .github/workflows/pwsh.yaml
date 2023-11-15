@@ -15,5 +15,5 @@ jobs:
         with:
           python-version: "3.10"
       - run: |-
-          ln -s ~/.local/bin/powershell /usr/bin/pwsh
+          ln -s /usr/bin/pwsh ~/.local/bin/powershell
           python -c 'import subprocess; subprocess.check_call("powershell -Command Invoke-WebRequest -Uri https://google.de", shell=True)'
