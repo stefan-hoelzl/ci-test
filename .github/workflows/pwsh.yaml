@@ -16,8 +16,5 @@ jobs:
           python-version: "3.10"
       - run: $PSVersionTable
         shell: pwsh
-      - run: which pwsh
-      - run: |-
-          import subprocess
-          subprocess.check_call("/usb/bin/pwsh -Command $PSVersionTable")
-        shell: python
+      - run: ls -l /usr/bin/pwsh
+      - run: python -c 'import subprocess; subprocess.check_call("/usb/bin/pwsh -Command $PSVersionTable")'
