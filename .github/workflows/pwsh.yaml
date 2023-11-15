@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+    - main
+
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Integration Tests
+        run: |-
+          import subprocess
+          subprocess.check_call("powershell -Command $PSVersionTable")
+        shell: python
