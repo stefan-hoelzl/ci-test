@@ -17,4 +17,7 @@ jobs:
       - run: |-
           mkdir -p ~/.local/bin
           ln -s /usr/bin/pwsh ~/.local/bin/powershell
-      - run: python -c 'import subprocess; subprocess.check_call("powershell -Command Invoke-WebRequest -Uri https://google.de", shell=True)'
+      - run: |-
+          import subprocess
+          subprocess.check_call(r'powershell -Command Invoke-WebRequest -Uri https://google.de -Headers @{Authorization=\"Bearer TOKEN\"}', shell=True)
+        shell: python
