@@ -14,7 +14,4 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-      - run: $PSVersionTable
-        shell: pwsh
-      - run: ls -l /opt/microsoft/powershell/7/pwsh
-      - run: python -c 'import subprocess; subprocess.check_call("/opt/microsoft/powershell/7/pwsh", shell=True)'
+      - run: python -c 'import subprocess; subprocess.check_call("powershell -Command $PSVersionTable", shell=True)'
