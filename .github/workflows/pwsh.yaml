@@ -16,5 +16,5 @@ jobs:
           python-version: "3.10"
       - run: $PSVersionTable
         shell: pwsh
-      - run: ls -l /usr/bin/pwsh
-      - run: python -c 'import subprocess; subprocess.check_call("/usb/bin/pwsh -Command $PSVersionTable")'
+      - run: ls -l /opt/microsoft/powershell/7/pwsh
+      - run: python -c 'import subprocess; subprocess.check_call("/opt/microsoft/powershell/7/pwsh -Command $PSVersionTable")'
