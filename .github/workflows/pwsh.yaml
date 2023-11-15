@@ -17,5 +17,5 @@ jobs:
       - name: Integration Tests
         run: |-
           import subprocess
-          subprocess.check_call("powershell -Command $PSVersionTable")
+          subprocess.check_call("pwsh -Command $PSVersionTable")
         shell: python
