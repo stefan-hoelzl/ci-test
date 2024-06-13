@@ -2,5 +2,5 @@ on:
   push:
 jobs:
   release-actions:
-    uses: stefan-hoelzl/ci-test-2/.github/workflows/workflow.yml@main
+    uses: stefan-hoelzl/ci-test-2/.github/workflows/workflow.yaml@main
     secrets: inherit
