@@ -1,23 +1,6 @@
 on:
   push:
-    branches:
-    - main
-
-
 jobs:
-  integration-tests:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-      - run: |-
-          mkdir -p ~/.local/bin
-          ln -s /usr/bin/pwsh ~/.local/bin/powershell
-      - run: |-
-          import subprocess
-          subprocess.check_call(r'powershell -Command Invoke-WebRequest -Uri https://google.de -Headers @{Authorization=\"Bearer TOKEN\"}', shell=True)
-        shell: python
+  release-actions:
+    uses: stefan-hoelzl/ci-test-2/.github/workflows/workflow.yml@main
+    secrets: inherit
