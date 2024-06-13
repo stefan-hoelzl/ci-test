@@ -1,0 +1,6 @@
+on:
+  workflow_call:
+jobs:
+  deploy-build:
+    uses: ./.github/workflows/workflow.yml
+    secrets: inherit
