@@ -1,0 +1,33 @@
+name: Test Deploy Downloads
+on:
+  push:
+    branches: [main]
+jobs:
+  create-build:
+    name: Create build artifact
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          mkdir -p output
+          echo "test content" > output/test-file.txt
+          echo "another file" > output/another.bin
+          cat > output/brp_lib.txt << 'TEMPLATE'
+          {% for f in files %}
+          {{ f }}
+          {% endfor %}
+          TEMPLATE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-artifact
+          path: output/
+  deploy:
+    needs: [create-build]
+    uses: baltech-ag/ci-scripts/.github/workflows/release-actions-deploy-downloads.yml@deploy-downloads
+    with:
+      artifact-name: test-artifact
+      dest: brp_lib
+      version: '4.0.0'
+      incremental: true
+      template: brp_lib.txt
+      deploy-branch: deploy-downloads
+    secrets: inherit
